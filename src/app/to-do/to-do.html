@@ -1,0 +1,32 @@
+<div class="w-full h-full bg-gradient-to-r from-[#f5f5dc] to-[#cdf8f8]">
+  <div class="header fade-in fixed top-0 left-0 right-0 z-50 bg-gray-200 shadow-md py-4">
+    <div class="max-w-2xl md:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between">
+        <div class="flex gap-1 justify-center items-center">
+          <lucide-icon [img]="clip" [size]="32" color="#6303c4"></lucide-icon>
+          <div
+            class="text-2xl md:text-3xl text-bold bg-gradient-to-r from-[#45027b] to-[#7901e2] bg-clip-text text-transparent hidden md:block">
+            TaskBot</div>
+        </div>
+        <div class="flex gap-5">
+          <div></div>
+          <a routerLink="tasktocomplete" routerLinkActive="text-violet-600" class="text-xl">Task</a>
+          <a routerLink="taskcompleted" routerLinkActive="text-violet-600" class="text-xl">Completed</a>
+        </div>
+        <div class="flex gap-3 text-center justify-center">
+          <p class="text-lg md:text-xl flex justify-center items-center hidden md:block">{{today|date:'EEE, dd-MM-yyyy'}}
+          </p>
+          <span
+            class="px-1 sm:px-3 flex justify-center items-center md:rounded-full sm:rounded-full rounded-lg text-xl bg-black text-white">{{out.charAt(0)|uppercase}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-25 max-w-md md:max-w-2xl mx-auto">
+
+    <router-outlet />
+  </div>
+</div>
+
+
