@@ -107,13 +107,13 @@ export class Tasktocomplete {
     })
   }
 
-  confirmDelete(task: any) {
-    this.taskToDelete = task;
+  confirmDelete(taskid: any) {
+    this.taskToDelete = taskid;
     this.showDeleteConfirm = true;
   }
 
   deleteConfirmed() {
-    this.todoService.deleteTask(this.taskToDelete.id).subscribe({
+    this.todoService.deleteTask(this.taskToDelete).subscribe({
       next: () => {
         this.showDeleteConfirm = false;
         this.taskToDelete = null;
@@ -137,22 +137,4 @@ export class Tasktocomplete {
     this.showDeleteConfirm = false;
     this.taskToDelete = null;
   }
-
-
-
-
-  // complete(index: any) {
-  //   this.toastMessage = "Task Completed Successfully";
-  //   this.showToast = true;
-
-  //   setTimeout(() => {
-  //     this.showToast = false;
-  //   }, 2000);
-  // }
-
-  // ngonInit() {
-  //   this.todoservice.fetchTasks().subscribe(data => {
-  //     console.log('Fetched tasks:', data);
-  //     this.arr = data;
-  //   });
 }
