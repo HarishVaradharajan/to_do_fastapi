@@ -1,11 +1,9 @@
-import { JsonpInterceptor } from '@angular/common/http';
 import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, CheckCheck, SquareMousePointer, Trash2, RotateCcw } from 'lucide-angular';
 import { NgClass } from '@angular/common';
 import { ToDo } from '../services/to-do';
-import { from } from 'rxjs';
 @Component({
   selector: 'app-tasktocomplete',
   imports: [FormsModule, LucideAngularModule, NgClass, CommonModule],
@@ -46,6 +44,17 @@ export class Tasktocomplete {
   }
 
   add(form: any) {
+    if (!form.valid) {
+      this.showToast = true;
+      this.toastMessage = "Please enter a task data";
+      this.toastfun = "delete";
+      setTimeout(() => {
+        this.showToast = false;
+        this.toastMessage = "";
+        this.cdf.detectChanges();
+      }, 2000);
+      return;
+    }
     this.todoService.addTask({
       description: form.value.task,
       completed: 0
@@ -62,8 +71,6 @@ export class Tasktocomplete {
         }, 2000);
 
         this.ngOnInit();
-        // this.todoData.unshift(data);
-        // this.cdf.detectChanges();
       }
     });
     form.reset();

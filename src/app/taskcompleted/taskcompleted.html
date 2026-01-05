@@ -23,7 +23,7 @@
 </div>
 
 @if (showToast) {
-  <div class="toast animate__animated animate__fadeInRight"
+  <div class="fixed bottom-5 right-10 text-white px-5 py-5 border rounded-xl animate__animated animate__fadeInRight [--animation-duration: 0.1s]"
        [ngClass]="{
          'bg-red-500': toastfun === 'delete',
          'bg-blue-400': toastfun === 'complete'
@@ -35,7 +35,7 @@
 @if (showDeleteConfirm) {
   <div class="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
 
-    <div class="animate__animated animate__zoomIn bg-gradient-to-r from-[#f5f5dc] to-[#cdf8f8] rounded-lg p-6 w-sm">
+    <div class="animate__animated animate__zoomIn [--animation-duration: 0.1s] bg-gradient-to-r from-[#f5f5dc] to-[#cdf8f8] rounded-lg p-6 w-sm">
       <h2 class="text-lg font-bold text-center">Confirm Delete</h2>
       <p class="my-4 text-center">
         Are you sure you want to delete this task?
